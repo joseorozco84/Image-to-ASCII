@@ -5,7 +5,7 @@ ASCII_CHARS = ['@', '%', '#', '*', '+', ';', '-', ':', ',', '.', ' ']
 # ASCII_CHARS = ['@', '#', 'S', '%', '?', '*', '+', ';', ':', ',', '.']
 
 # resize image according to a new width
-def resize_image(image, new_width=600):
+def resize_image(image, new_width=100):
     width, height = image.size
     ratio = height / width
     new_height = int(new_width * ratio)
@@ -26,12 +26,12 @@ def pixels_to_ascii(image):
     return (characters)
 
 # attempt to open image from user-input
-def main(new_width=600):
+def main(new_width=100):
     path = input('Enter the path of the image: ')
     try:
         image = PIL.Image.open(path)
     except:
-        print(path, 'is not a valid path to image file')
+        print(path, 'is not a valid path to a .jpg file')
     # convert image to ASCII
     new_image_data = pixels_to_ascii(grayify(resize_image(image)))
     # format
